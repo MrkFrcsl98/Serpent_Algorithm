@@ -1,6 +1,6 @@
 // ============================================================================
 //  serpent.hpp - Serpent Cipher Implementation
-//  Copyright (c) 2024 666ghosthost666 and contributors
+//  Copyright (c) 2025 MrcFrcsl98 and contributors
 //
 //  This software is provided 'as-is', without any express or implied warranty.
 //  In no event will the authors be held liable for any damages arising from
