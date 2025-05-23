@@ -44,75 +44,55 @@ void test_mode(const std::string& mode_name, const std::string& original_message
             bool ok = false;
             try {
                 if (mode_name == "ECB") {
-                    if (key_size == KEY_SIZE::BITS_128) {
-                        Serpent<ECB_Mode, KEY_SIZE::BITS_128> serpent;
-                        enc = serpent.encrypt(msg, key).asString();
-                        dec = serpent.decrypt(enc, key).asString();
-                    } else if (key_size == KEY_SIZE::BITS_192) {
-                        Serpent<ECB_Mode, KEY_SIZE::BITS_192> serpent;
-                        enc = serpent.encrypt(msg, key).asString();
-                        dec = serpent.decrypt(enc, key).asString();
-                    } else {
-                        Serpent<ECB_Mode, KEY_SIZE::BITS_256> serpent;
-                        enc = serpent.encrypt(msg, key).asString();
-                        dec = serpent.decrypt(enc, key).asString();
-                    }
+                    if (key_size == KEY_SIZE::BITS_128)
+                        enc = Serpent<KEY_SIZE::BITS_128>::ECB::Encrypt(msg, key).asString(),
+                        dec = Serpent<KEY_SIZE::BITS_128>::ECB::Decrypt(enc, key).asString();
+                    else if (key_size == KEY_SIZE::BITS_192)
+                        enc = Serpent<KEY_SIZE::BITS_192>::ECB::Encrypt(msg, key).asString(),
+                        dec = Serpent<KEY_SIZE::BITS_192>::ECB::Decrypt(enc, key).asString();
+                    else
+                        enc = Serpent<KEY_SIZE::BITS_256>::ECB::Encrypt(msg, key).asString(),
+                        dec = Serpent<KEY_SIZE::BITS_256>::ECB::Decrypt(enc, key).asString();
                 } else if (mode_name == "CBC") {
-                    if (key_size == KEY_SIZE::BITS_128) {
-                        Serpent<CBC_Mode, KEY_SIZE::BITS_128> serpent;
-                        enc = serpent.encrypt(msg, key, iv).asString();
-                        dec = serpent.decrypt(enc, key, iv).asString();
-                    } else if (key_size == KEY_SIZE::BITS_192) {
-                        Serpent<CBC_Mode, KEY_SIZE::BITS_192> serpent;
-                        enc = serpent.encrypt(msg, key, iv).asString();
-                        dec = serpent.decrypt(enc, key, iv).asString();
-                    } else {
-                        Serpent<CBC_Mode, KEY_SIZE::BITS_256> serpent;
-                        enc = serpent.encrypt(msg, key, iv).asString();
-                        dec = serpent.decrypt(enc, key, iv).asString();
-                    }
+                    if (key_size == KEY_SIZE::BITS_128)
+                        enc = Serpent<KEY_SIZE::BITS_128>::CBC::Encrypt(msg, key, iv).asString(),
+                        dec = Serpent<KEY_SIZE::BITS_128>::CBC::Decrypt(enc, key, iv).asString();
+                    else if (key_size == KEY_SIZE::BITS_192)
+                        enc = Serpent<KEY_SIZE::BITS_192>::CBC::Encrypt(msg, key, iv).asString(),
+                        dec = Serpent<KEY_SIZE::BITS_192>::CBC::Decrypt(enc, key, iv).asString();
+                    else
+                        enc = Serpent<KEY_SIZE::BITS_256>::CBC::Encrypt(msg, key, iv).asString(),
+                        dec = Serpent<KEY_SIZE::BITS_256>::CBC::Decrypt(enc, key, iv).asString();
                 } else if (mode_name == "CFB") {
-                    if (key_size == KEY_SIZE::BITS_128) {
-                        Serpent<CFB_Mode, KEY_SIZE::BITS_128> serpent;
-                        enc = serpent.encrypt(msg, key, iv).asString();
-                        dec = serpent.decrypt(enc, key, iv).asString();
-                    } else if (key_size == KEY_SIZE::BITS_192) {
-                        Serpent<CFB_Mode, KEY_SIZE::BITS_192> serpent;
-                        enc = serpent.encrypt(msg, key, iv).asString();
-                        dec = serpent.decrypt(enc, key, iv).asString();
-                    } else {
-                        Serpent<CFB_Mode, KEY_SIZE::BITS_256> serpent;
-                        enc = serpent.encrypt(msg, key, iv).asString();
-                        dec = serpent.decrypt(enc, key, iv).asString();
-                    }
+                    if (key_size == KEY_SIZE::BITS_128)
+                        enc = Serpent<KEY_SIZE::BITS_128>::CFB::Encrypt(msg, key, iv).asString(),
+                        dec = Serpent<KEY_SIZE::BITS_128>::CFB::Decrypt(enc, key, iv).asString();
+                    else if (key_size == KEY_SIZE::BITS_192)
+                        enc = Serpent<KEY_SIZE::BITS_192>::CFB::Encrypt(msg, key, iv).asString(),
+                        dec = Serpent<KEY_SIZE::BITS_192>::CFB::Decrypt(enc, key, iv).asString();
+                    else
+                        enc = Serpent<KEY_SIZE::BITS_256>::CFB::Encrypt(msg, key, iv).asString(),
+                        dec = Serpent<KEY_SIZE::BITS_256>::CFB::Decrypt(enc, key, iv).asString();
                 } else if (mode_name == "OFB") {
-                    if (key_size == KEY_SIZE::BITS_128) {
-                        Serpent<OFB_Mode, KEY_SIZE::BITS_128> serpent;
-                        enc = serpent.encrypt(msg, key, iv).asString();
-                        dec = serpent.decrypt(enc, key, iv).asString();
-                    } else if (key_size == KEY_SIZE::BITS_192) {
-                        Serpent<OFB_Mode, KEY_SIZE::BITS_192> serpent;
-                        enc = serpent.encrypt(msg, key, iv).asString();
-                        dec = serpent.decrypt(enc, key, iv).asString();
-                    } else {
-                        Serpent<OFB_Mode, KEY_SIZE::BITS_256> serpent;
-                        enc = serpent.encrypt(msg, key, iv).asString();
-                        dec = serpent.decrypt(enc, key, iv).asString();
-                    }
+                    if (key_size == KEY_SIZE::BITS_128)
+                        enc = Serpent<KEY_SIZE::BITS_128>::OFB::Encrypt(msg, key, iv).asString(),
+                        dec = Serpent<KEY_SIZE::BITS_128>::OFB::Decrypt(enc, key, iv).asString();
+                    else if (key_size == KEY_SIZE::BITS_192)
+                        enc = Serpent<KEY_SIZE::BITS_192>::OFB::Encrypt(msg, key, iv).asString(),
+                        dec = Serpent<KEY_SIZE::BITS_192>::OFB::Decrypt(enc, key, iv).asString();
+                    else
+                        enc = Serpent<KEY_SIZE::BITS_256>::OFB::Encrypt(msg, key, iv).asString(),
+                        dec = Serpent<KEY_SIZE::BITS_256>::OFB::Decrypt(enc, key, iv).asString();
                 } else if (mode_name == "CTR") {
-                    if (key_size == KEY_SIZE::BITS_128) {
-                        Serpent<CTR_Mode, KEY_SIZE::BITS_128> serpent;
-                        enc = serpent.encrypt(msg, key, iv).asString();
-                        dec = serpent.decrypt(enc, key, iv).asString();
-                    } else if (key_size == KEY_SIZE::BITS_192) {
-                        Serpent<CTR_Mode, KEY_SIZE::BITS_192> serpent;
-                        enc = serpent.encrypt(msg, key, iv).asString();
-                        dec = serpent.decrypt(enc, key, iv).asString();
-                    } else {
-                        Serpent<CTR_Mode, KEY_SIZE::BITS_256> serpent;
-                        enc = serpent.encrypt(msg, key, iv).asString();
-                        dec = serpent.decrypt(enc, key, iv).asString();
-                    }
+                    if (key_size == KEY_SIZE::BITS_128)
+                        enc = Serpent<KEY_SIZE::BITS_128>::CTR::Encrypt(msg, key, iv).asString(),
+                        dec = Serpent<KEY_SIZE::BITS_128>::CTR::Decrypt(enc, key, iv).asString();
+                    else if (key_size == KEY_SIZE::BITS_192)
+                        enc = Serpent<KEY_SIZE::BITS_192>::CTR::Encrypt(msg, key, iv).asString(),
+                        dec = Serpent<KEY_SIZE::BITS_192>::CTR::Decrypt(enc, key, iv).asString();
+                    else
+                        enc = Serpent<KEY_SIZE::BITS_256>::CTR::Encrypt(msg, key, iv).asString(),
+                        dec = Serpent<KEY_SIZE::BITS_256>::CTR::Decrypt(enc, key, iv).asString();
                 }
                 ok = (dec == msg);
             } catch (...) {
@@ -141,75 +121,55 @@ void test_mode(const std::string& mode_name, const std::string& original_message
             bool ok = false;
             try {
                 if (mode_name == "ECB") {
-                    if (key_size == KEY_SIZE::BITS_128) {
-                        Serpent<ECB_Mode, KEY_SIZE::BITS_128> serpent;
-                        enc = serpent.encrypt(msg, key).asString();
-                        dec = serpent.decrypt(enc, key).asString();
-                    } else if (key_size == KEY_SIZE::BITS_192) {
-                        Serpent<ECB_Mode, KEY_SIZE::BITS_192> serpent;
-                        enc = serpent.encrypt(msg, key).asString();
-                        dec = serpent.decrypt(enc, key).asString();
-                    } else {
-                        Serpent<ECB_Mode, KEY_SIZE::BITS_256> serpent;
-                        enc = serpent.encrypt(msg, key).asString();
-                        dec = serpent.decrypt(enc, key).asString();
-                    }
+                    if (key_size == KEY_SIZE::BITS_128)
+                        enc = Serpent<KEY_SIZE::BITS_128>::ECB::Encrypt(msg, key).asString(),
+                        dec = Serpent<KEY_SIZE::BITS_128>::ECB::Decrypt(enc, key).asString();
+                    else if (key_size == KEY_SIZE::BITS_192)
+                        enc = Serpent<KEY_SIZE::BITS_192>::ECB::Encrypt(msg, key).asString(),
+                        dec = Serpent<KEY_SIZE::BITS_192>::ECB::Decrypt(enc, key).asString();
+                    else
+                        enc = Serpent<KEY_SIZE::BITS_256>::ECB::Encrypt(msg, key).asString(),
+                        dec = Serpent<KEY_SIZE::BITS_256>::ECB::Decrypt(enc, key).asString();
                 } else if (mode_name == "CBC") {
-                    if (key_size == KEY_SIZE::BITS_128) {
-                        Serpent<CBC_Mode, KEY_SIZE::BITS_128> serpent;
-                        enc = serpent.encrypt(msg, key, iv).asString();
-                        dec = serpent.decrypt(enc, key, iv).asString();
-                    } else if (key_size == KEY_SIZE::BITS_192) {
-                        Serpent<CBC_Mode, KEY_SIZE::BITS_192> serpent;
-                        enc = serpent.encrypt(msg, key, iv).asString();
-                        dec = serpent.decrypt(enc, key, iv).asString();
-                    } else {
-                        Serpent<CBC_Mode, KEY_SIZE::BITS_256> serpent;
-                        enc = serpent.encrypt(msg, key, iv).asString();
-                        dec = serpent.decrypt(enc, key, iv).asString();
-                    }
+                    if (key_size == KEY_SIZE::BITS_128)
+                        enc = Serpent<KEY_SIZE::BITS_128>::CBC::Encrypt(msg, key, iv).asString(),
+                        dec = Serpent<KEY_SIZE::BITS_128>::CBC::Decrypt(enc, key, iv).asString();
+                    else if (key_size == KEY_SIZE::BITS_192)
+                        enc = Serpent<KEY_SIZE::BITS_192>::CBC::Encrypt(msg, key, iv).asString(),
+                        dec = Serpent<KEY_SIZE::BITS_192>::CBC::Decrypt(enc, key, iv).asString();
+                    else
+                        enc = Serpent<KEY_SIZE::BITS_256>::CBC::Encrypt(msg, key, iv).asString(),
+                        dec = Serpent<KEY_SIZE::BITS_256>::CBC::Decrypt(enc, key, iv).asString();
                 } else if (mode_name == "CFB") {
-                    if (key_size == KEY_SIZE::BITS_128) {
-                        Serpent<CFB_Mode, KEY_SIZE::BITS_128> serpent;
-                        enc = serpent.encrypt(msg, key, iv).asString();
-                        dec = serpent.decrypt(enc, key, iv).asString();
-                    } else if (key_size == KEY_SIZE::BITS_192) {
-                        Serpent<CFB_Mode, KEY_SIZE::BITS_192> serpent;
-                        enc = serpent.encrypt(msg, key, iv).asString();
-                        dec = serpent.decrypt(enc, key, iv).asString();
-                    } else {
-                        Serpent<CFB_Mode, KEY_SIZE::BITS_256> serpent;
-                        enc = serpent.encrypt(msg, key, iv).asString();
-                        dec = serpent.decrypt(enc, key, iv).asString();
-                    }
+                    if (key_size == KEY_SIZE::BITS_128)
+                        enc = Serpent<KEY_SIZE::BITS_128>::CFB::Encrypt(msg, key, iv).asString(),
+                        dec = Serpent<KEY_SIZE::BITS_128>::CFB::Decrypt(enc, key, iv).asString();
+                    else if (key_size == KEY_SIZE::BITS_192)
+                        enc = Serpent<KEY_SIZE::BITS_192>::CFB::Encrypt(msg, key, iv).asString(),
+                        dec = Serpent<KEY_SIZE::BITS_192>::CFB::Decrypt(enc, key, iv).asString();
+                    else
+                        enc = Serpent<KEY_SIZE::BITS_256>::CFB::Encrypt(msg, key, iv).asString(),
+                        dec = Serpent<KEY_SIZE::BITS_256>::CFB::Decrypt(enc, key, iv).asString();
                 } else if (mode_name == "OFB") {
-                    if (key_size == KEY_SIZE::BITS_128) {
-                        Serpent<OFB_Mode, KEY_SIZE::BITS_128> serpent;
-                        enc = serpent.encrypt(msg, key, iv).asString();
-                        dec = serpent.decrypt(enc, key, iv).asString();
-                    } else if (key_size == KEY_SIZE::BITS_192) {
-                        Serpent<OFB_Mode, KEY_SIZE::BITS_192> serpent;
-                        enc = serpent.encrypt(msg, key, iv).asString();
-                        dec = serpent.decrypt(enc, key, iv).asString();
-                    } else {
-                        Serpent<OFB_Mode, KEY_SIZE::BITS_256> serpent;
-                        enc = serpent.encrypt(msg, key, iv).asString();
-                        dec = serpent.decrypt(enc, key, iv).asString();
-                    }
+                    if (key_size == KEY_SIZE::BITS_128)
+                        enc = Serpent<KEY_SIZE::BITS_128>::OFB::Encrypt(msg, key, iv).asString(),
+                        dec = Serpent<KEY_SIZE::BITS_128>::OFB::Decrypt(enc, key, iv).asString();
+                    else if (key_size == KEY_SIZE::BITS_192)
+                        enc = Serpent<KEY_SIZE::BITS_192>::OFB::Encrypt(msg, key, iv).asString(),
+                        dec = Serpent<KEY_SIZE::BITS_192>::OFB::Decrypt(enc, key, iv).asString();
+                    else
+                        enc = Serpent<KEY_SIZE::BITS_256>::OFB::Encrypt(msg, key, iv).asString(),
+                        dec = Serpent<KEY_SIZE::BITS_256>::OFB::Decrypt(enc, key, iv).asString();
                 } else if (mode_name == "CTR") {
-                    if (key_size == KEY_SIZE::BITS_128) {
-                        Serpent<CTR_Mode, KEY_SIZE::BITS_128> serpent;
-                        enc = serpent.encrypt(msg, key, iv).asString();
-                        dec = serpent.decrypt(enc, key, iv).asString();
-                    } else if (key_size == KEY_SIZE::BITS_192) {
-                        Serpent<CTR_Mode, KEY_SIZE::BITS_192> serpent;
-                        enc = serpent.encrypt(msg, key, iv).asString();
-                        dec = serpent.decrypt(enc, key, iv).asString();
-                    } else {
-                        Serpent<CTR_Mode, KEY_SIZE::BITS_256> serpent;
-                        enc = serpent.encrypt(msg, key, iv).asString();
-                        dec = serpent.decrypt(enc, key, iv).asString();
-                    }
+                    if (key_size == KEY_SIZE::BITS_128)
+                        enc = Serpent<KEY_SIZE::BITS_128>::CTR::Encrypt(msg, key, iv).asString(),
+                        dec = Serpent<KEY_SIZE::BITS_128>::CTR::Decrypt(enc, key, iv).asString();
+                    else if (key_size == KEY_SIZE::BITS_192)
+                        enc = Serpent<KEY_SIZE::BITS_192>::CTR::Encrypt(msg, key, iv).asString(),
+                        dec = Serpent<KEY_SIZE::BITS_192>::CTR::Decrypt(enc, key, iv).asString();
+                    else
+                        enc = Serpent<KEY_SIZE::BITS_256>::CTR::Encrypt(msg, key, iv).asString(),
+                        dec = Serpent<KEY_SIZE::BITS_256>::CTR::Decrypt(enc, key, iv).asString();
                 }
                 ok = (dec == msg);
             } catch (...) {
