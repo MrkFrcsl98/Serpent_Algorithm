@@ -2,7 +2,13 @@
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![C++17 Ready](https://img.shields.io/badge/C%2B%2B-17-blue.svg)](https://en.cppreference.com/w/cpp/17)
-
+[![Serpent Algorithm](https://img.shields.io/badge/algorithm-Serpent-lightgrey.svg)](https://en.wikipedia.org/wiki/Serpent_(cipher))
+[![AES Finalist](https://img.shields.io/badge/AES-Finalist-blueviolet.svg)](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard_process)
+[![Block Size: 128 bits](https://img.shields.io/badge/block%20size-128%20bits-orange.svg)](https://en.wikipedia.org/wiki/Serpent_(cipher))
+[![Key Sizes: 128/192/256 bits](https://img.shields.io/badge/key%20sizes-128%2F192%2F256%20bits-green.svg)](https://en.wikipedia.org/wiki/Serpent_(cipher))
+[![Modes: ECB, CBC, CFB, OFB, CTR](https://img.shields.io/badge/modes-ECB%2C%20CBC%2C%20CFB%2C%20OFB%2C%20CTR-lightblue.svg)](#modes-of-operation)
+[![Header-only](https://img.shields.io/badge/header--only-yes-critical.svg)](https://github.com/MrkFrcsl98/Serpent_Algorithm)
+[![Status: Educational](https://img.shields.io/badge/status-educational-important.svg)](#security-notes-and-disclaimer)
 ---
 
 ## Table of Contents
